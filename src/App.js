@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import CityContainer from "./components/CityContainer";
+import styled from "styled-components";
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 380px;
+  padding: 20px 10px;
+  margin: auto;
+  border-radius: 4px;
+  box-shadow: 0 3px 6px 0 #555;
+  background: white;
+  font-family: Montserrat;
+`;
+
+const AppLabel = styled.span`
+  color: black;
+  margin: 20px auto;
+  font-size: 18px;
+  font-weight: bold;
+`;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <AppLabel>Weather</AppLabel>
+      <CityContainer />
+    </Container>
   );
 }
 
