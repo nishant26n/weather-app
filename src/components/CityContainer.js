@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import perfectDay from "./icons/perfect-day.svg";
 
 const WeatherLogo = styled.img`
   width: 140px;
@@ -47,7 +46,7 @@ const SearchBox = styled.form`
 const CityContainer = () => {
   return (
     <>
-      <WeatherLogo src={perfectDay} />
+      <WeatherLogo src="/icons/perfect-day.svg" />
       <ChooseCityLabel>Find weather of your city</ChooseCityLabel>
       <SearchBox>
         <input placeholder="City" />
