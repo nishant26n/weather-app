@@ -21,7 +21,7 @@ export const WeatherIcons = {
   "10n": "/weather-app/icons/rain-night.svg",
   "11d": "/weather-app/icons/storm.svg",
   "11n": "/weather-app/icons/storm.svg",
-  "50n": "weather-app/icons/haze.png",
+  "50n": "/weather-app/icons/haze.png",
 };
 
 const Container = styled.div`
