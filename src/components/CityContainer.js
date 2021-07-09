@@ -45,7 +45,7 @@ const CityContainer = (props) => {
 
   return (
     <>
-      <WeatherLogo src="/icons/perfect-day.svg" />
+      <WeatherLogo src={"/weather-app/icons/perfect-day.svg"} />
       <ChooseCityLabel>Find weather of your city</ChooseCityLabel>
       <SearchBox onSubmit={fetchWeather}>
         <input
