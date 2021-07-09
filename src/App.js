@@ -1,4 +1,5 @@
-import CityContainer from "./components/CityContainer";
+// import CityContainer from "./components/CityContainer";
+import WeatherComponent from "./components/WeatherInfoContainer";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -17,7 +18,7 @@ const Container = styled.div`
 const AppLabel = styled.span`
   color: black;
   margin: 20px auto;
-  font-size: 18px;
+  font-size: 25px;
   font-weight: bold;
 `;
 
@@ -25,7 +26,7 @@ function App() {
   return (
     <Container>
       <AppLabel>Weather</AppLabel>
-      <CityContainer />
+      <WeatherComponent />
     </Container>
   );
 }
