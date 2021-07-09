@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { WeatherIcons } from "../App";
 
 export const WeatherInfoIcons = {
   sunset: "/icons/temp.svg",
@@ -20,6 +21,7 @@ const WeatherContainer = styled.div`
 const Condition = styled.span`
   margin: 20px auto;
   font-size: 14px;
+  text-transform: capitalize;
   & span {
     font-size: 28px;
   }
@@ -85,22 +87,41 @@ const WeatherInfoComponent = (props) => {
   );
 };
 
-const WeatherComponent = () => {
+const WeatherComponent = (props) => {
+  const { weather } = props;
+  const isDay = weather?.weather[0].icon?.includes("d");
+  const getTime = (timeStamp) => {
+    return `${new Date(timeStamp * 1000).getHours()} : ${new Date(
+      timeStamp * 1000
+    ).getMinutes()}`;
+  };
+
   return (
     <>
       <WeatherContainer>
         <Condition>
-          <span>30 C | </span> Cloudy
+          <span>{`${Math.floor(weather?.main?.temp - 273)}°C`}</span>
+          {`  |  ${weather?.weather[0].description}`}
         </Condition>
-        <WeatherIcon src="/icons/perfect-day.svg" />
+        <WeatherIcon src={WeatherIcons[weather?.weather[0].icon]} />
       </WeatherContainer>
-      <Location>London GB</Location>
+      <Location>{`${weather?.name}, ${weather?.sys?.country}`}</Location>
+
       <WeatherInfoLabel>Weather Info</WeatherInfoLabel>
       <WeatherInfoContainer>
-        <WeatherInfoComponent name="sunrise" value="41211" />
-        <WeatherInfoComponent name="humidity" value="1231" />
-        <WeatherInfoComponent name="wind" value="2632" />
-        <WeatherInfoComponent name="pressure" value="6225" />
+        <WeatherInfoComponent
+          name={isDay ? "sunset" : "sunrise"}
+          value={`${getTime(weather?.sys[isDay ? "sunset" : "sunrise"])}`}
+        />
+        <WeatherInfoComponent
+          name={"humidity"}
+          value={weather?.main?.humidity}
+        />
+        <WeatherInfoComponent name={"wind"} value={weather?.wind?.speed} />
+        <WeatherInfoComponent
+          name={"pressure"}
+          value={weather?.main?.pressure}
+        />
       </WeatherInfoContainer>
     </>
   );

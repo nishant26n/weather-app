@@ -31,26 +31,28 @@ const SearchBox = styled.form`
   & button {
     padding: 10px;
     font-size: 14px;
-    color: black;
-    background-color: #8fc8ff;
+    color: white;
+    background-color: #556270;
     border: none;
     outline: none;
     cursor: pointer;
     transition-duration: 0.2s;
   }
-  & button:hover {
-    background-color: #4faafe;
-  }
 `;
 
-const CityContainer = () => {
+const CityContainer = (props) => {
+  const { updateCity, fetchWeather } = props;
+
   return (
     <>
       <WeatherLogo src="/icons/perfect-day.svg" />
       <ChooseCityLabel>Find weather of your city</ChooseCityLabel>
-      <SearchBox>
-        <input placeholder="City" />
-        <button>Search</button>
+      <SearchBox onSubmit={fetchWeather}>
+        <input
+          onChange={(e) => updateCity(e.target.value)}
+          placeholder="City"
+        />
+        <button type={"submit"}>Search</button>
       </SearchBox>
     </>
   );
