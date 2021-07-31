@@ -1,4 +1,4 @@
-Hello devs, this is a simple waether app made in react that will show the current weather of particular area.
+Hello devs, this is a simple weather app made in react that will show the current weather of particular area.
 Type the name of your city and press enter or click on search button to get the weather of that particular area.
 
 React things used in this propject:
